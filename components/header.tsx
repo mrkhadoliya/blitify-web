@@ -1,8 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Search, User, ShoppingBag, Bell, ChevronDown, Sparkles, MapPin, Phone } from "lucide-react"
+import { Menu, X, Search, User, ShoppingBag, Bell, ChevronDown, Sparkles, MapPin, Phone, Store } from "lucide-react"
 import Image from "next/image"
+import BlitifyLogo from "../public/Blitify-India-logo.png"
+import GooglePlayLogo from "../public/google-play.png"
+import Link from "next/link"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -50,7 +53,7 @@ export default function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-gradient-to-r from-primary to-secondary text-white text-sm py-2 px-4">
+      <div className="bg-gradient-to-r from-primary to-blue-500 text-white text-sm py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
@@ -74,26 +77,18 @@ export default function Header() {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? "bg-white/95 backdrop-blur-lg shadow-lg" 
+            ? "bg-white/95 backdrop-blur-lg" 
             : "bg-white"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 h-16 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 py-2 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                <div className="text-white font-bold text-lg">B</div>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-500 border-2 border-white"></div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Blitify
-              </span>
+          <Link href="/">
+            <Image src={BlitifyLogo} alt="Blitify Logo" width={120} height={70} className="rounded-full" />
+            <div className="mt-1"> 
               <span className="text-xs text-foreground/60 -mt-1">Local. Trusted. Amazing.</span>
             </div>
-          </div>
+          </Link>
  
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -151,16 +146,11 @@ export default function Header() {
           <div className="flex items-center gap-3">
              
             <div className="hidden md:flex items-center gap-2">
-              <button className="p-2 hover:bg-muted rounded-lg transition-colors relative">
-                <Bell size={20} />
-                <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500"></span>
-              </button>
-              <button className="p-2 hover:bg-muted rounded-lg transition-colors">
-                <ShoppingBag size={20} />
-              </button>
-              <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:shadow-primary/25 transition-all">
-                <User size={18} />
-                <span className="font-medium">Sign In</span>
+              
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-600/25 transition-all duration-300 flex items-center gap-2">
+                <Store size={18} />
+                Join as Vendor
+                <span className="bg-yellow-400 text-blue-900 text-xs px-1.5 py-0.5 rounded-full font-bold">FREE</span>
               </button>
             </div>
  
@@ -199,17 +189,17 @@ export default function Header() {
               ))}
                
               <div className="pt-4 border-t border-border mt-4 space-y-3">
-                <button className="w-full flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-muted">
+                {/* <button className="w-full flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-muted">
                   <Bell size={20} />
                   <span>Notifications</span>
                 </button>
                 <button className="w-full flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-muted">
                   <ShoppingBag size={20} />
                   <span>My Cart</span>
-                </button>
+                </button> */}
                 <button className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white">
                   <User size={20} />
-                  <span className="font-medium">Sign In</span>
+                  <span className="font-medium">Google Play Store</span>
                 </button>
               </div>
             </div>

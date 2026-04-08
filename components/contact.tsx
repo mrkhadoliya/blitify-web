@@ -52,7 +52,7 @@ export default function Contact() {
             <MessageSquare size={16} />
             We're here to help
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-800">
             Get In Touch
           </h2>
           <p className="text-foreground/70 max-w-2xl mx-auto text-lg">

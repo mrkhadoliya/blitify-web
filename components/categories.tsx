@@ -34,170 +34,219 @@ import {
   Search,
   Zap as Lightning,
   ChevronLeft,
+  MapPin,
+  Shield,
+  CheckCircle,
 } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 
 const allCategories = [
   {
+    icon: ShoppingBag,
+    label: "Grocery & Daily Needs",
+    color: "from-green-500 to-emerald-500",
+    deals: 2103,
+    vendors: 345,
+    trending: true,
+    verified: true
+  },
+  {
     icon: UtensilsCrossed,
     label: "Restaurants & Food",
     color: "from-orange-500 to-red-500",
     deals: 1245,
-    trending: true
-  },
-  {
-    icon: Shirt,
-    label: "Fashion & Clothing",
-    color: "from-pink-500 to-rose-500",
-    deals: 892,
-    trending: true
-  },
-  {
-    icon: Home,
-    label: "Home & Decor",
-    color: "from-blue-500 to-cyan-500",
-    deals: 567,
-    trending: false
-  },
-  {
-    icon: Smartphone,
-    label: "Electronics",
-    color: "from-purple-500 to-indigo-500",
-    deals: 1342,
-    trending: true
-  },
-  {
-    icon: ShoppingBag,
-    label: "Grocery & Bakery",
-    color: "from-green-500 to-emerald-500",
-    deals: 2103,
-    trending: false
-  },
-  {
-    icon: Flower2,
-    label: "Beauty & Wellness",
-    color: "from-red-500 to-pink-500",
-    deals: 745,
-    trending: true
-  },
-  {
-    icon: Hammer,
-    label: "Hardware & Tools",
-    color: "from-amber-500 to-orange-500",
-    deals: 432,
-    trending: false
-  },
-  {
-    icon: Dumbbell,
-    label: "Fitness & Sports",
-    color: "from-cyan-500 to-teal-500",
-    deals: 689,
-    trending: true
-  },
-  {
-    icon: Coffee,
-    label: "Cafe & Beverages",
-    color: "from-yellow-600 to-amber-600",
-    deals: 987,
-    trending: true
-  },
-  {
-    icon: Music,
-    label: "Music & Entertainment",
-    color: "from-fuchsia-500 to-purple-500",
-    deals: 345,
-    trending: false
-  },
-  {
-    icon: Camera,
-    label: "Photography",
-    color: "from-indigo-500 to-blue-500",
-    deals: 234,
-    trending: false
-  },
-  {
-    icon: Sofa,
-    label: "Furniture",
-    color: "from-rose-500 to-red-500",
-    deals: 456,
-    trending: false
-  },
-  {
-    icon: Utensils,
-    label: "Kitchen Supplies",
-    color: "from-lime-500 to-green-500",
-    deals: 678,
-    trending: true
-  },
-  {
-    icon: Zap,
-    label: "Appliances",
-    color: "from-sky-500 to-blue-500",
-    deals: 789,
-    trending: false
-  },
-  {
-    icon: Wind,
-    label: "AC & Cooling",
-    color: "from-teal-500 to-cyan-500",
-    deals: 321,
-    trending: false
-  },
-  {
-    icon: Palette,
-    label: "Art & Crafts",
-    color: "from-violet-500 to-purple-500",
-    deals: 543,
-    trending: true
-  },
-  {
-    icon: Bolt,
-    label: "Footwear",
-    color: "from-orange-500 to-red-500",
-    deals: 876,
-    trending: true
+    vendors: 278,
+    trending: true,
+    verified: true
   },
   {
     icon: Pill,
     label: "Pharmacy & Medical",
     color: "from-emerald-500 to-green-500",
     deals: 654,
-    trending: false
+    vendors: 156,
+    trending: true,
+    verified: true
   },
   {
-    icon: Heart,
-    label: "Healthcare Products",
+    icon: Shirt,
+    label: "Fashion & Clothing",
+    color: "from-pink-500 to-rose-500",
+    deals: 892,
+    vendors: 234,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Smartphone,
+    label: "Electronics & Gadgets",
+    color: "from-purple-500 to-indigo-500",
+    deals: 1342,
+    vendors: 189,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Home,
+    label: "Home Decor & Furnishing",
+    color: "from-blue-500 to-cyan-500",
+    deals: 567,
+    vendors: 98,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Flower2,
+    label: "Beauty & Personal Care",
     color: "from-red-500 to-pink-500",
-    deals: 432,
-    trending: false
+    deals: 745,
+    vendors: 167,
+    trending: true,
+    verified: true
   },
   {
-    icon: Briefcase,
-    label: "Business Services",
-    color: "from-slate-600 to-slate-800",
+    icon: Bolt,
+    label: "Footwear & Accessories",
+    color: "from-orange-500 to-red-500",
+    deals: 876,
+    vendors: 145,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Coffee,
+    label: "Cafe & Beverages",
+    color: "from-yellow-600 to-amber-600",
     deals: 987,
-    trending: true
+    vendors: 203,
+    trending: true,
+    verified: true
   },
   {
     icon: GamepadIcon,
     label: "Gaming & Toys",
     color: "from-purple-500 to-pink-500",
     deals: 765,
-    trending: true
+    vendors: 87,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Dumbbell,
+    label: "Fitness & Sports",
+    color: "from-cyan-500 to-teal-500",
+    deals: 689,
+    vendors: 112,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Hammer,
+    label: "Hardware & Tools",
+    color: "from-amber-500 to-orange-500",
+    deals: 432,
+    vendors: 76,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Utensils,
+    label: "Kitchen & Dining",
+    color: "from-lime-500 to-green-500",
+    deals: 678,
+    vendors: 134,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Zap,
+    label: "Home Appliances",
+    color: "from-sky-500 to-blue-500",
+    deals: 789,
+    vendors: 98,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Wind,
+    label: "AC & Cooling Solutions",
+    color: "from-teal-500 to-cyan-500",
+    deals: 321,
+    vendors: 45,
+    trending: false,
+    verified: true
   },
   {
     icon: BookOpen,
     label: "Books & Stationery",
     color: "from-amber-500 to-orange-500",
     deals: 543,
-    trending: false
+    vendors: 89,
+    trending: false,
+    verified: true
   },
   {
     icon: Headphones,
-    label: "Audio & Accessories",
+    label: "Audio & Wearables",
     color: "from-blue-500 to-cyan-500",
     deals: 678,
-    trending: true
+    vendors: 92,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Camera,
+    label: "Photography & Studio",
+    color: "from-indigo-500 to-blue-500",
+    deals: 234,
+    vendors: 43,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Music,
+    label: "Music & Entertainment",
+    color: "from-fuchsia-500 to-purple-500",
+    deals: 345,
+    vendors: 56,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Heart,
+    label: "Healthcare & Wellness",
+    color: "from-red-500 to-pink-500",
+    deals: 432,
+    vendors: 78,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Sofa,
+    label: "Furniture & Woodwork",
+    color: "from-rose-500 to-red-500",
+    deals: 456,
+    vendors: 67,
+    trending: false,
+    verified: true
+  },
+  {
+    icon: Palette,
+    label: "Art & Handicrafts",
+    color: "from-violet-500 to-purple-500",
+    deals: 543,
+    vendors: 82,
+    trending: true,
+    verified: true
+  },
+  {
+    icon: Briefcase,
+    label: "Local Services",
+    color: "from-slate-600 to-slate-800",
+    deals: 987,
+    vendors: 203,
+    trending: true,
+    verified: true
   },
 ]
 
@@ -225,7 +274,7 @@ export default function Categories() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % (trendingCategories.length - 2))
-    }, 3000) // Change slide every 3 seconds
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [isPaused, trendingCategories.length])
@@ -246,24 +295,24 @@ export default function Categories() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
+        {/* Header - Updated with Blitify tagline */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary/20 mb-8">
             <Sparkles className="text-primary" size={18} />
-            <span className="text-primary font-semibold">Endless Possibilities</span>
+            <span className="text-primary font-semibold">Jo Chahiye, Wahi Mile - All Verified!</span>
             <div className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             <span className="bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent">
-              Discover Amazing
+              500+ Product Categories
             </span>
             <br />
-            <span className="text-foreground">Categories</span>
+            <span className="text-foreground">From Verified Local Shops</span>
           </h2>
 
           <p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
-            Browse through 50+ categories and find incredible deals from verified vendors in your area.
+            From grocery to electronics, pharmacy to fashion - every vendor is <span className="font-semibold text-primary">GST-verified</span> with physical shop authentication. Trusted discounts, right in your neighborhood.
           </p>
         </div>
 
@@ -277,7 +326,7 @@ export default function Categories() {
               </div>
               <input
                 type="text"
-                placeholder="Search categories..."
+                placeholder="Search categories (e.g., grocery, electronics)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-3.5 rounded-xl border-2 border-border/50 bg-background/50 text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
@@ -291,32 +340,32 @@ export default function Categories() {
                 className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-primary/30 text-primary font-medium hover:bg-primary/10 hover:border-primary transition-all duration-300"
               >
                 <Filter size={18} />
-                {showAll ? "Show Less" : "Show All"}
+                {showAll ? "Show Less" : "All Categories"}
               </button>
               <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
-                <TrendingUp size={18} />
-                Trending
+                <Shield size={18} />
+                Verified Only
               </button>
             </div>
           </div>
 
-          {/* Category Stats */}
+          {/* Category Stats - Updated with Blitify metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50">
               <div className="text-2xl font-bold text-foreground mb-1">{allCategories.length}+</div>
               <div className="text-sm text-foreground/70">Categories</div>
             </div>
             <div className="bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <div className="text-2xl font-bold text-foreground mb-1">500+</div>
-              <div className="text-sm text-foreground/70">Vendors</div>
+              <div className="text-2xl font-bold text-foreground mb-1">10,000+</div>
+              <div className="text-sm text-foreground/70">Free Vendors</div>
             </div>
             <div className="bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <div className="text-2xl font-bold text-foreground mb-1">5K+</div>
-              <div className="text-sm text-foreground/70">Active Deals</div>
+              <div className="text-2xl font-bold text-foreground mb-1">15K+</div>
+              <div className="text-sm text-foreground/70">Live Deals</div>
             </div>
             <div className="bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <div className="text-2xl font-bold text-foreground mb-1">24/7</div>
-              <div className="text-sm text-foreground/70">Updates</div>
+              <div className="text-2xl font-bold text-foreground mb-1">100%</div>
+              <div className="text-sm text-foreground/70">GST Verified</div>
             </div>
           </div>
         </div>
@@ -344,17 +393,17 @@ export default function Categories() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative z-10">
-                    {/* Icon and Trending Badge */}
+                    {/* Icon and Verification Badge */}
                     <div className="flex items-start justify-between mb-6">
                       <div className="relative">
                         <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
                           <Icon className="text-white" size={28} />
                         </div>
-                        {category.trending && (
+                        {category.verified && (
                           <div className="absolute -top-2 -right-2">
-                            <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                              <Lightning size={10} />
-                              Hot
+                            <div className="bg-green-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                              <CheckCircle size={10} />
+                              GST
                             </div>
                           </div>
                         )}
@@ -371,10 +420,16 @@ export default function Categories() {
                       {category.label}
                     </h3>
 
+                    {/* Vendor Count */}
+                    <div className="flex items-center gap-1 text-white/80 text-sm mb-3">
+                      <MapPin size={14} />
+                      <span>{category.vendors} verified vendors near you</span>
+                    </div>
+
                     {/* Arrow and Explore Text */}
                     <div className="flex items-center justify-between mt-4">
                       <span className="text-white/80 text-sm group-hover:text-white transition-colors">
-                        Explore deals
+                        View within 1km
                       </span>
                       <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all group-hover:scale-110">
                         <ChevronRight className="text-white w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -400,7 +455,7 @@ export default function Categories() {
                   </>
                 ) : (
                   <>
-                    View All Categories
+                    Explore All {allCategories.length} Categories
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </>
                 )}
@@ -409,107 +464,16 @@ export default function Categories() {
           )}
         </div>
 
-        {/* Trending Categories Carousel */}
-        <div className="mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">🔥 Trending Now</h3>
-              <p className="text-foreground/70">Most popular categories this week</p>
-            </div>
-            <button className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-              <span className="font-medium">View All Trending</span>
-              <ChevronRight size={18} />
-            </button>
-          </div>
-
-          <div
-            className="relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:scale-110 transition-transform hover:shadow-xl"
-            >
-              <ChevronLeft className="text-foreground" size={24} />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:scale-110 transition-transform hover:shadow-xl"
-            >
-              <ChevronRight className="text-foreground" size={24} />
-            </button>
-
-            {/* Carousel Container */}
-            <div
-              ref={carouselRef}
-              className="overflow-hidden rounded-2xl"
-            >
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {trendingCategories.map((category, idx) => {
-                  const Icon = category.icon
-                  return (
-                    <div
-                      key={idx}
-                      className="w-full flex-shrink-0"
-                    >
-                      <div className="group relative mx-2">
-                        <div className="relative overflow-hidden rounded-2xl">
-                          {/* Background */}
-                          <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-90`} />
-
-                          {/* Content */}
-                          <div className="relative p-8">
-                            <div className="flex items-start justify-between mb-6">
-                              <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                <Icon className="text-white" size={32} />
-                              </div>
-                              <div className="text-right">
-                                <div className="text-3xl font-bold text-white">{category.deals}</div>
-                                <div className="text-white/80">active deals</div>
-                              </div>
-                            </div>
-
-                            <h4 className="text-xl font-bold text-white mb-4">{category.label}</h4>
-
-                            <button className="w-full bg-white/20 backdrop-blur-sm text-white py-3 rounded-xl font-medium hover:bg-white/30 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
-                              Explore Now
-                              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-                            </button>
-                          </div>
-
-                          {/* Hover Effect */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {trendingCategories.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === idx
-                      ? 'bg-primary w-6'
-                      : 'bg-border hover:bg-foreground/30'
-                    }`}
-                />
-              ))}
-            </div>
+        {/* Trust Badge */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/5 to-secondary/5 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20">
+            <Shield className="text-primary" size={24} />
+            <span className="text-foreground font-medium">
+              Every vendor is <span className="text-primary font-bold">GST verified</span> with physical shop photos. No ghost kitchens, no fake stores.
+            </span>
+            <CheckCircle className="text-green-500" size={20} />
           </div>
         </div>
-
-
       </div>
 
       {/* Custom Styles */}

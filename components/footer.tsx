@@ -30,24 +30,18 @@ export default function Footer() {
     { label: "Help Center", href: "#" },
     { label: "FAQ", href: "#" },
     { label: "Vendor Guide", href: "#" },
-    { label: "Community", href: "#" },
-    { label: "Report Issue", href: "#" },
-    { label: "Feedback", href: "#" },
+    { label: "Community", href: "#" }, 
   ]
 
   const legalLinks = [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
-    { label: "Accessibility", href: "#" },
-    { label: "GDPR Compliance", href: "#" },
-    { label: "CCPA Compliance", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
+    { label: "Cookie Policy", href: "/cookie-policy" }, 
   ]
 
   const companyLinks = [
     { label: "About Us", href: "#about" },
-    { label: "Careers", href: "#" },
-    { label: "Press Kit", href: "#" },
+    { label: "Careers", href: "/careers" }, 
     { label: "Partners", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Investors", href: "#" },
@@ -71,18 +65,18 @@ export default function Footer() {
     { icon: Globe, label: "Global Reach", color: "text-blue-500" },
     { icon: CreditCard, label: "Flexible Payments", color: "text-purple-500" },
     { icon: Award, label: "Verified Vendors", color: "text-amber-500" },
-    { icon: Users, label: "Community Driven", color: "text-pink-500" },
+    // { icon: Users, label: "Community Driven", color: "text-pink-500" },
     { icon: Zap, label: "Fast Support", color: "text-red-500" },
   ]
 
   return (
-    <footer className="relative bg-gradient-to-b from-background to-background/95 border-t border-border">
+    <footer className="relative bg-gradient-to-b from-white to-white/95 border-t border-border">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Top Section - Newsletter */}
-        <div className="mb-16">
+        <div className="mb-16 overflow-hidden">
           <div className="bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-primary/20">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
@@ -242,7 +236,7 @@ export default function Footer() {
 
         {/* Features Bar */}
         <div className="mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {features.map((feature, idx) => {
               const Icon = feature.icon
               return (
@@ -309,15 +303,7 @@ export default function Footer() {
                 © {new Date().getFullYear()} Blitify. All rights reserved. 
                 <span className="hidden md:inline"> Connecting communities with amazing local businesses.</span>
               </p>
-              
-              <div className="flex items-center gap-2 text-sm text-foreground/60">
-                <div className="flex items-center gap-1">
-                  Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-                  <span className="hidden sm:inline">in</span>
-                </div>
-                <span className="font-medium text-foreground">For Local Communities</span>
-              </div>
-              
+                
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-white" />

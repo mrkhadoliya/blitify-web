@@ -143,7 +143,7 @@ export default function Services() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20" />
                 
                 {/* Floating elements */}
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl animate-float">
+                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
                       <Zap className="text-white" size={20} />
@@ -155,7 +155,7 @@ export default function Services() {
                   </div>
                 </div>
                 
-                <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl animate-float-delayed">
+                <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float-delayed">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
                       <Shield className="text-white" size={20} />
@@ -168,7 +168,7 @@ export default function Services() {
                 </div>
                 
                 {/* Mockup Image */}
-                <div className="relative h-full min-h-[500px] bg-gradient-to-br from-background/50 to-background/30 flex items-center justify-center p-8">
+                <div className="relative h-full min-h-[500px] flex items-center justify-center p-8">
                   <div className="w-full max-w-sm bg-gradient-to-br from-background to-background/80 rounded-2xl p-6 shadow-2xl border border-border/50">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center">

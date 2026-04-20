@@ -50,7 +50,7 @@ export default function Footer() {
   const contactInfo = [
     { icon: Mail, label: "Email", value: "info@blitify.com" },
     { icon: Phone, label: "Phone", value: "+91-7410855544" },
-    { icon: MapPin, label: "Address", value: "PLOT NO. 16 NANU NAGAR CHARN NADI NEHAR KI DHANI BENAD ROAD MURLIPURA 302039" },
+    { icon: MapPin, label: "Address", value: "Plot No. 16, Nanu Nagar, Charn Nadi, Benad Road, Murlipura, Jaipur - 302039" },
   ]
 
   const socialLinks = [

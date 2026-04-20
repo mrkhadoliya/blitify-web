@@ -63,7 +63,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Left column - Contact Info */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-border/50">
+            <div className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50">
               <h3 className="text-2xl font-bold text-foreground mb-8">Contact Information</h3>
               
               <div className="space-y-6">
@@ -85,7 +85,7 @@ export default function Contact() {
                   { 
                     icon: MapPin, 
                     label: "Address", 
-                    value: "PLOT NO. 16 NANU NAGAR CHARN NADI NEHAR KI DHANI BENAD ROAD MURLIPURA 302039",
+                    value: "Plot N0. 16 Nanu Nagar Charn Nadi Nehar Ki Dhani Banad Road Murlipura 302039",
                     color: "bg-purple-500/10 text-purple-600",
                     iconColor: "text-purple-500"
                   },
@@ -132,7 +132,7 @@ export default function Contact() {
 
           {/* Right column - Contact Form */}
           <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-border/50 h-full">
+            <div className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50 h-full">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-foreground mb-2">Send us a message</h3>
                 <p className="text-foreground/70">Fill out the form below and we'll get back to you as soon as possible.</p>
